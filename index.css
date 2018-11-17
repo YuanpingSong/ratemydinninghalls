@@ -1,0 +1,44 @@
+.flex-container {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    
+    -webkit-flex-flow: row wrap;
+    justify-content: space-around;
+
+    background-color: yellow;
+  }
+  
+  .flex-item {
+    background: tomato;
+    padding: 5px;
+    width: 150px;
+    height: 150px;
+    margin: 5px;
+    flex-grow: 1;
+    
+    line-height: 50px;
+    color: white;
+    font-weight: bold;
+    font-size: 2em;
+    text-align: center;
+
+    
+  }
+
+  /* we need invisible elements to make sure flex-box works coorectly for
+   the last row */
+  .phantom-element {
+    visibility: hidden;
+    width: 150px;
+    height: 0px;
+    margin: 0px 5px;
+    padding: 0px 5px;
+    flex-grow: 1;
+  }
