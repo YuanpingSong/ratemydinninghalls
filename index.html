@@ -1,20 +1,21 @@
 <!DOCTYPE html>
 <head>
     <title>Rate My Dinning</title>
-    <link rel="stylesheet" href="index.css" /> 
+    <link rel="stylesheet" href="flex.css" /> 
+    <link rel="stylesheet" href="drop-down.css" /> 
     <script src="script.js" defer></script>
+    <script src="drop-down.js" defer></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
-    <nav></nav>
-    <button>Restaurants</button>
-    <select id='context-select'>
-            <option value="halls">Halls</option>
-            <option value="restaurants">Restaurants</option>
-            <option value="all">All</option>
-    </select>
-    <div class="flex-container">
-        
+    <div class="dropdown">
+        <button onclick="myFunction()" class="dropbtn">Filter</button>
+            <div id="myDropdown" class="dropdown-content">
+                <a href="javascript:halls_button_on_click()">Halls</a>
+                <a href="javascript:restaurants_button_on_click()">Restaurants</a>
+                <a href="javascript:all_button_on_click()">All</a>
+            </div>
     </div>
+    <div class="flex-container"></div>
 
 </body>
