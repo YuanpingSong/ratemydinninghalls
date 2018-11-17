@@ -3,11 +3,37 @@
     <title>Rate My Dinning</title>
     <link rel="stylesheet" href="flex.css" /> 
     <link rel="stylesheet" href="drop-down.css" /> 
+    <script src="https://www.gstatic.com/firebasejs/5.5.8/firebase.js"></script>
     <script src="script.js" defer></script>
     <script src="drop-down.js" defer></script>
+    <script src="fb.js" defer></script>
+    <script>
+    // Initialize Firebase
+    var config = {
+    apiKey: "AIzaSyCgqxZMHtcwa2StJGNEs5GlcFJUe4LjNiQ",
+    authDomain: "ucla-dining-rate.firebaseapp.com",
+    databaseURL: "https://ucla-dining-rate.firebaseio.com",
+    projectId: "ucla-dining-rate",
+    storageBucket: "ucla-dining-rate.appspot.com",
+    messagingSenderId: "875413997540"
+    };
+    firebase.initializeApp(config);
+    </script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
+        <div id="user-container">
+              <div id="rates-card" class="mdl-card">
+                <ul id="rates">
+                  <span id="rate-filler"></span>
+                </ul>
+                <form id="rate-form" action="#">
+                  <input placeholder="abc" type="text" id="rate">
+                  <button id="submit" disabled type="submit">
+                    SEND
+                  </button>
+                </form>
+              </div>
     <div class="dropdown">
         <button onclick="myFunction()" class="dropbtn">Filter</button>
             <div id="myDropdown" class="dropdown-content">

@@ -53,23 +53,16 @@ function all_button_on_click() {
     flex_container_context_switch(flex_container_context);
 }
 
-
-/*function context_button_on_click() {
-    switch (flex_container_context) {
-        case context_halls:
-            context_button.innerHTML = 'Restaurants';
-            break;
-        case context_halls:
-            context_button.innerHTML = 'All';
-            break;
-        case context_halls:
-            context_button.innerHTML = 'Halls';
-            break;
-    }
-    flex_container_context = (flex_container_context + 1) % 3;
-    flex_container_context_switch(flex_container_context);
-}*/
-
+function item_box(name) {
+    let item_box = document.createElement('div');
+    item_box.className = 'flex-item';
+    item_box.id = name;
+    item_name = document.createElement('p');
+    item_name.innerHTML = name;
+    item_box.appendChild(item_name);
+    return item_box;
+}
 init_flex_container(flex_container_context);
+document.body.appendChild(item_box('ucla'));
 
 
