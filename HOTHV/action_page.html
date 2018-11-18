@@ -1,0 +1,43 @@
+
+<!doctype html>
+<html>
+<div id = "example">
+<head>
+
+	<title>UCLA Dining</title>
+	<link rel="stylesheet" href= "style.css">
+	<style>
+</style>
+</head>
+<body style="background-color: darkblue">
+	<center>
+		<div style = "text-align:middle">
+			<h1 style="color:gold;">Thank you for your feedback.</h1>
+			<div @click="greet ('USC Sucks')" id = "GO BRUINS" class = "mid">
+					<input type="image" src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ1rq6VyeC5vpx6Oey73643DQSbjqJw3EowyhLZPyTMqJHTTCkz' width = "200" height = "	200"/>
+				</div>
+		</div>
+		<div id = "ucla" style="display: none;">
+			<img src = "https://scontent-lax3-1.xx.fbcdn.net/v/t1.0-9/46488272_1157790961045589_6542997446954319872_n.jpg?_nc_cat=1&_nc_ht=scontent-lax3-1.xx&oh=ab1c818fb6ba59b251a12fba7d58d188&oe=5C7CCD0F">
+			<p style="color:gold;">-UCLA Memes for Sick AF Tweens</p>
+		</div>
+	</center>
+</body>
+</div>
+</html>
+
+<script src="https://unpkg.com/vue"></script>
+<script>
+	var test = new Vue({
+		el: '#example',
+		data: {
+			name: 'Test Example'
+		},
+		methods: {
+			greet: function (event){
+				var elem = document.getElementById("ucla")
+				elem.style.display = "block";
+			}
+		}
+	})
+</script>

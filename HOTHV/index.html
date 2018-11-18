@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>What's Bruin?</title>
+	<style>
+	* {
+		box-sizing: border-box;
+	}
+
+	.column {
+		float: left;
+		width: 25%;
+		padding: 5px;
+	}
+
+	.row::after {
+		content: "";
+		clear: both;
+		display: table;
+	}
+</style>
+</head>
+<body style="background-color: darkblue">
+	<h2 style="color:gold;">How was your dining experience?</h2>
+	<p style="color:gold;">Let us know below (scale from 1-5).
+	 Which dining hall did you go to?</p>
+	<div id = "example">
+		<div class="row">
+			<div class="column">
+				<p style="color:gold;">BPlate</p>
+				<div @click="greet ('BPlate')" id = "bplate">
+					<input type="image" src='https://dailybruin.com/images/2018/01/web.ns_.bplate.ADX_-640x428.jpg' width = "200" height = "	200"/>
+				</div>
+			</div>
+			<div class="column">
+				<p style="color:gold;">Covel</p>
+				<div @click="greet ('Covel')" id = "covel">
+					<input type="image" src='http://space.admin.ucla.edu/space_plsql/pkg_library.show_mime_file?p_file_id=1105' width = "200" height = "	200"/>
+				</div>
+			</div>
+			<div class="column">
+				<p style="color:gold;">De Neve</p>
+				<div @click="greet ('De Neve')" id = "deneve">
+					<input type="image" src='http://space.admin.ucla.edu/space_plsql/pkg_library.show_mime_file?p_file_id=4495' width = "200" height = "	200"/>
+				</div>
+			</div>
+			<div class = "column">
+				<p style="color:gold;">Feast</p>
+				<div @click="greet ('Feast')" id = "feast">
+					<input type="image" src='http://feast.hhs.ucla.edu/wp-content/uploads/2011/09/FeastLogo_WebMediaKit1-e13192514805801.png' width = "200" height = "	200"/>
+				</div>
+			</div>
+		</div>
+		<div id = "voting" style="display: none;">
+			<form action="action_page.html">
+			<p style="color:gold;">Dish 1</p>
+			<select name="rating1" size="4">
+				<option value="1">(1) Disgusting</option>
+				<option value="2">(2) Bad</option>
+				<option value="3">(3) Eh</option>
+				<option value="4">(4) Good</option>
+				<option value="5">(5) Amazing</option>
+			</select>
+			<br><br>
+			<p style="color:gold;">Dish 2</p>
+			<select name="rating2" size="4">
+				<option value="1">(1) Disgusting</option>
+				<option value="2">(2) Bad</option>
+				<option value="3">(3) Eh</option>
+				<option value="4">(4) Good</option>
+				<option value="5">(5) Amazing</option>
+			</select>
+			<br><br>
+			<p style="color:gold;">Dish 3</p>
+			<select name="rating3" size="4">
+				<option value="1">(1) Disgusting</option>
+				<option value="2">(2) Bad</option>
+				<option value="3">(3) Eh</option>
+				<option value="4">(4) Good</option>
+				<option value="5">(5) Amazing</option>
+			</select>
+			<br><br>
+			<p style="color:gold;">Dish 4</p>
+			<select name="rating4" size="4">
+				<option value="1">(1) Disgusting</option>
+				<option value="2">(2) Bad</option>
+				<option value="3">(3) Eh</option>
+				<option value="4">(4) Good</option>
+				<option value="5">(5) Amazing</option>
+			</select>
+			<br><br>
+			<input type="submit">
+		</form>
+		</div>
+
+	</div>
+</body>
+</html>
+
+<script src="https://unpkg.com/vue"></script>
+<script>
+	var test = new Vue({
+		el: '#example',
+		data: {
+			name: 'Test Example'
+		},
+		methods: {
+			greet: function (event){
+				alert("You have selected " + event + ".\nView today's full menu here: http://menu.dining.ucla.edu/")
+				var elem = document.getElementById("voting")
+				elem.style.display = "block";
+			}
+		}
+	})
+</script>
