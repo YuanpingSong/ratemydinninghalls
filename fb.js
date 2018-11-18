@@ -91,3 +91,4 @@ let init = () => {
 }
 
 init();
+loadRate();

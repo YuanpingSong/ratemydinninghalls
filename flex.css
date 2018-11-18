@@ -23,11 +23,11 @@
     margin: 5px;
     flex-grow: 1;
     
-    line-height: 50px;
+    line-height: 30px;
     color: white;
     font-weight: bold;
-    font-size: 2em;
-    text-align: center;
+    font-size: 1.5em;
+    text-align: left;
   }
 
   /* we need invisible elements to make sure flex-box works coorectly for
@@ -40,7 +40,83 @@
     padding: 0px 5px;
     flex-grow: 1;
   }
+
+  .hours-message {
+    font-size: 0.55em;
+    font-weight: lighter;
+    margin: 0px;
+    text-align: left;
+    line-height: 20px;
+  }
+
+  .flex-item .item-name {
+    margin : 0px;
+    text-align: left;
+  }
   
+  .flex-item .traffic-message {
+    font-size: 0.55em;
+    font-weight: lighter;
+    font-style: italic;
+    margin: 0px;
+    text-align: left;
+    line-height: 20px;
+  }
 
+  .rating-info {
+    font-size: 0.55em;
+    font-weight: lighter;
+    font-style: italic;
+    margin: 0px;
+    line-height: 20px;
 
- 
+    padding: 0px;
+    margin: 0px;
+  }
+
+  .upvote-info {
+    font-size: 0.55em;
+    font-weight: lighter;
+    font-style: italic;
+    margin: 0px;
+    line-height: 20px;
+
+    padding: 0px;
+    margin: 0px;
+    
+  }
+
+  .mini-flex-container {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    
+    justify-content: space-between;
+
+  }
+
+  .upvote-button {
+    font-size : 1.5em;
+    align-self: left;
+  }
+
+ .bar-frame {
+   width: 100%;
+   background-color: #ddd;
+ }
+
+ .bar-filler {
+   height: 15px;
+   background-color: #4CAF50;
+   text-align: center;
+   font-size: 15px;
+   line-height: 15px;
+   font-weight: lighter;
+   color: white;
+ }
