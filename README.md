@@ -19,4 +19,4 @@ to continuously improve the quality of food, we decided to create "What's Bruin?
 
 Contributors
 
-David Tung
+Yuanping Song, Zheyi Wang, Iyakem Estifanos, David Tung
