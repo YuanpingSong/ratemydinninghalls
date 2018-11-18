@@ -18,7 +18,31 @@ const activity_level = {
     'De Neve Grab and Go': 81, 
     'The Study at Hedrick': 12
 };
-let flex_container_context = context_halls; // set initial content here
+
+const id_to_db_idx = {
+    'BruinPlate' : 0, 
+    'Covel': 1, 
+    'DeNeve': 2, 
+    'Feast': 3,
+    'BruinCafe': 4, 
+    'Cafe1919': 5, 
+    'Rondezvous': 6,
+    'DeNeveGrabandGo': 7, 
+    'TheStudyatHedrick': 8
+};
+
+const image_urls = {
+    'BruinPlate' : "http://bruinplate.hhs.ucla.edu/img/Home_Slide2_new.jpg", 
+    'Covel': "https://i.pinimg.com/474x/c1/4b/0c/c14b0cf19d5294a805b8a486b0f79ce1--garlic-noodles-recipe-parmesan-noodles.jpg", 
+    'DeNeve': "http://cms.ipressroom.com.s3.amazonaws.com/173/files/20154/554a8774299b504b35004edc_Grilled-Persian-Style-Lamb-/Grilled-Persian-Style-Lamb-_2d98dc31-1b91-4a48-ba43-54129ee79083-prv.jpg",
+    'Feast': "http://24.media.tumblr.com/tumblr_m5jqn3w8js1qa54c3o1_500.jpg",
+    'BruinCafe': "https://cdnimg.webstaurantstore.com/images/products/xxl/28981/1038430.jpg", 
+    'Cafe1919': "https://www.washingtonian.com/wp-content/uploads/2012/03/Picture-1_1721.png", 
+    'Rondezvous': "http://menu.dining.ucla.edu/Content/Images/RecipeImages/189208.jpg",
+    'DeNeveGrabandGo': "http://menu.dining.ucla.edu/Content/Images/RecipeImages/077009.jpg", 
+    'TheStudyatHedrick': "https://spoonuniversity.com/wp-content/uploads/sites/61/2016/05/o.jpg"
+};
+let flex_container_context = context_all; // set initial content here
 
 
 function init_flex_container(context) {
@@ -57,6 +81,12 @@ function restaurants_button_on_click() {
 function all_button_on_click() {
     flex_container_context = context_all;
     flex_container_context_switch(flex_container_context);
+}
+
+function upvote_button_on_click(id) {
+    // read votes from firebase
+    votes[id_to_db_idx[id]] += 1;
+    // write votes to firebase
 }
 
 function create_percentage_bar(percentage) {
@@ -112,34 +142,42 @@ function upvotes(name) {
 function item_box(name) {
     let item_box = document.createElement('div');
     item_box.className = 'flex-item';
-    item_box.id = name;
-    item_name = document.createElement('p');
+    item_box.id = name.replace(/\s+/g,'');
+    let background_image = document.createElement('img');
+    background_image.className = "item-background-img";
+    background_image.setAttribute("src",image_urls[item_box.id]);
+    let overlay = document.createElement('div');
+    overlay.className = "item-overlay";
+    item_box.appendChild(background_image);
+    item_box.appendChild(overlay);
+    let item_name = document.createElement('p');
     item_name.innerHTML = name;
     item_name.className = 'item-name';
     item_box.appendChild(item_name);
     item_box.appendChild(create_percentage_bar(activity_level[name]))
-    hours_info = document.createElement('p');
+    let hours_info = document.createElement('p');
     hours_info.className = "hours-message";
     hours_info.innerHTML = hours_message(name);
     item_box.appendChild(hours_info);
-    traffic_info = document.createElement('p');
+    let traffic_info = document.createElement('p');
     traffic_info.className = 'traffic-message';
     traffic_info.innerHTML = traffic_message(name);
     item_box.appendChild(traffic_info);
-    rating_info = document.createElement('p');
+    let rating_info = document.createElement('p');
     rating_info.className = 'rating-info';
     rating_info.innerHTML = rating(name);
-    upvote_info = document.createElement('p');
+    let upvote_info = document.createElement('p');
     upvote_info.className = 'upvote-info';
     upvote_info.innerHTML = upvotes(name);
-    mini_flex = document.createElement('div');
+    let mini_flex = document.createElement('div');
     mini_flex.className = 'mini-flex-container';
     mini_flex.appendChild(upvote_info);
     mini_flex.appendChild(rating_info);
     item_box.appendChild(mini_flex);
-    upvote_btn = document.createElement('button');
+    let upvote_btn = document.createElement('button');
     upvote_btn.innerHTML = '👍'
     upvote_btn.className = 'upvote-button';
+    upvote_btn.onclick = upvote_button_on_click;
     item_box.append(upvote_btn);
     return item_box;
 }

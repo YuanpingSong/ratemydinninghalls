@@ -11,12 +11,9 @@
     
     -webkit-flex-flow: row wrap;
     justify-content: space-around;
-
-    background-color: yellow;
   }
   
   .flex-item {
-    background: tomato;
     padding: 5px;
     width: 150px;
     height: 150px;
@@ -28,6 +25,7 @@
     font-weight: bold;
     font-size: 1.5em;
     text-align: left;
+    position: relative;
   }
 
   /* we need invisible elements to make sure flex-box works coorectly for
@@ -104,6 +102,8 @@
   .upvote-button {
     font-size : 1.5em;
     align-self: left;
+    background-color: transparent;
+    border: none;
   }
 
  .bar-frame {
@@ -113,10 +113,45 @@
 
  .bar-filler {
    height: 15px;
-   background-color: #4CAF50;
+   background-color: tomato;
    text-align: center;
    font-size: 15px;
    line-height: 15px;
    font-weight: lighter;
    color: white;
+ }
+
+ /*#Rondezvous {
+  font-size: 2vw;
+ }*/
+
+ #TheStudyatHedrick .item-name{
+  font-size: 16px;
+ }
+
+ #DeNeveGrabandGo .item-name{
+  font-size: 16px;
+ }
+
+ .item-overlay {
+  position: absolute;
+  margin: -5px;
+  padding: 0px;
+  width: 100%;
+  height: 100%;
+  background-color: grey;
+  opacity: 0.6;
+  z-index: -1;
+  
+ }
+
+ .item-background-img {
+   margin: -5px;
+  padding: 0px;
+   width: 100%;
+   height: 100%;
+   z-index: -2;
+   display: block;
+   position: absolute;
+   
  }
